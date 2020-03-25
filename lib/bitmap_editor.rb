@@ -1,6 +1,16 @@
-require "bitmap_editor/version"
+# frozen_string_literal: true
 
-module BitmapEditor
-  class Error < StandardError; end
-  # Your code goes here...
+# require "bitmap_editor/version"
+
+class BitmapEditor
+  def initialize(file)
+    @commands = []
+    @file = file
+  end
+
+  def start
+    File.readlines(@file).each do |line|
+      puts line
+    end
+  end
 end
