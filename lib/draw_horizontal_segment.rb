@@ -1,5 +1,4 @@
 require_relative 'bitmap'
-require_relative 'colour_the_pixel'
 
 class DrawHorizontalSegment
     def initialize(args = [])

@@ -1,15 +1,16 @@
 require_relative 'bitmap'
 
-class DrawVerticalSegment
+class ShowContent
     def initialize(args = [])
         @args = args
     end
     
     def execute(bitmap)
-        (@args[1]..@args[2]).each do |row|
-            bitmap[row, @args[0]] = @args[3]
+        image = ""
+        bitmap.bitmap.each do |row|
+            image += row.join("") + "\n"
         end
-        bitmap
+        puts image
     end
        
 end
