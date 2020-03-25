@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# require "bitmap_editor/version"
+require_relative 'bitmap'
 
 class BitmapEditor
   def initialize(file)
