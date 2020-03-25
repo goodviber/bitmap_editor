@@ -10,6 +10,7 @@ RSpec.describe BitMap do
     end
 
     it 'has a bitmap of the default color' do
+      expect(subject.bitmap[0][0].to(eq(0)))
       expect(subject.bitmap.uniq.size).to eq(1)
     end
   end
