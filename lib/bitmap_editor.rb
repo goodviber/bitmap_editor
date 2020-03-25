@@ -5,6 +5,7 @@ require_relative 'create_new_image'
 require_relative 'clear_the_table'
 require_relative 'colour_the_pixel'
 require_relative 'draw_vertical_segment'
+require_relative 'draw_horizontal_segment'
 
 class BitmapEditor
   def initialize(file)
@@ -19,7 +20,7 @@ class BitmapEditor
       'C' => ClearTheTable,
       'L' => ColourThePixel,
       'V' => DrawVerticalSegment,
-      #'H' => DrawHorizontalSegment,
+      'H' => DrawHorizontalSegment,
       #'S' => ShowContents
     }
   end
