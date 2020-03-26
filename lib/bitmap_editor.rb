@@ -30,15 +30,20 @@ class BitmapEditor
     File.readlines(@file).each do |line|
       @commands << line.chomp.split
     end
-    run_all_commands
+    begin
+      run_all_commands
+    rescue StandardError => e
+      puts e.message
+    end
   end
 
   def run_all_commands
     @commands.each do |command|
       letter, *args = command
-     # byebug
-      @bitmap = all_commands[letter.to_s].new(args).execute(@bitmap)
-      
+      next if !all_commands.has_key?(letter)
+      #byebug
+      @bitmap = all_commands[letter].new(args).execute(@bitmap)
     end
   end
+
 end

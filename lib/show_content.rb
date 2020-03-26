@@ -6,11 +6,12 @@ class ShowContent
     end
     
     def execute(bitmap)
-        image = ""
+        #image = ""
         bitmap.bitmap.each do |row|
-            image += row.join("") + "\n"
+            #image += row.join("") + "\n"
+            puts row.join
         end
-        puts image
+        #puts image
     end
        
 end
