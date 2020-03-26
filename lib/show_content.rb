@@ -1,17 +1,12 @@
-require_relative 'bitmap'
+#require_relative 'bitmap'
 
-class ShowContent
-    def initialize(args = [])
-        @args = args
-    end
+class ShowContent < BaseCommand
     
-    def execute(bitmap)
-        #image = ""
-        bitmap.bitmap.each do |row|
-            #image += row.join("") + "\n"
-            puts row.join
-        end
-        #puts image
+  def execute(bitmap)
+    assert_valid_arguments(bitmap)
+    bitmap.bitmap.each do |row|
+      puts row.join
     end
+  end
        
 end
