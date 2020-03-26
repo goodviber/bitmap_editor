@@ -1,12 +1,20 @@
 # frozen_string_literal: true
-require_relative 'bitmap'
 
-class ClearTheTable
-  def initialize(args = [])
-    @args = args
+class ClearTheTable < BaseCommand
+  def execute(bitmap)
+    assert_valid_arguments(bitmap) # what do we need for this, an image?
+    bitmap = BitMap.new(columns(bitmap), rows(bitmap))
   end
 
-  def execute(bitmap)
-    BitMap.new(@args[0], @args[1])
+  def assert_valid_arguments(bitmap)
+    raise BitmapImageMissingError, "bitmap is missing" if bitmap.nil?
+  end
+
+  def columns(bitmap)
+    bitmap[0].size
+  end
+
+  def rows(bitmap)
+    bitmap.size
   end
 end

@@ -1,6 +1,8 @@
 require "bundler/setup"
-require "bitmap_editor"
+require "editor"
 require 'byebug'
+#require 'create_new_image'
+#require 'bitmap'
 
 project_root = File.dirname(File.absolute_path(__FILE__))
 Dir.glob(project_root + '/../lib/*') { |file| require file }
