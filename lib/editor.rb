@@ -9,7 +9,9 @@ require_relative 'draw_horizontal_segment'
 require_relative 'show_content'
 
 class Editor
+  
   def initialize(file)
+    raise InvalidFileError if !File.exists?(file) || File.zero?(file)
     @bitmap = nil
     @commands = []
     @file = file
@@ -30,19 +32,13 @@ class Editor
     File.readlines(@file).each do |line|
       @commands << line.chomp.split
     end
-    begin
-      run_all_commands
-    rescue StandardError, ArgumentError => e
-      puts e.message
-    end
-  end
-
-  def run_all_commands
+    #run_all_commands
     @commands.each do |command|
       letter, *args = command
       next if !all_commands.has_key?(letter)
       @bitmap = all_commands[letter].new(args).execute(@bitmap)
     end
+    @bitmap
   end
 
 end

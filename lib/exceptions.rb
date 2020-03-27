@@ -38,3 +38,9 @@ class ReverseRangeError < CustomError
     "first coordinate must be smaller or equal to second coordinate for #{data.class}"
   end
 end
+
+class InvalidFileError < StandardError
+  def initialize(msg="File is empty or missing")
+    super
+  end
+end

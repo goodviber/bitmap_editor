@@ -1,26 +1,36 @@
 RSpec.describe Editor do
-  let(:file) { File.read("spec/fixtures/sample.txt") }
-  let(:missing_file) { File.read("spec/fixtures/missing_file.txt") }
-  subject(:has_file) { Editor.new(file) }
-  subject(:missing_file) { Editor.new(missing_file) }
-
+  let(:file) { "spec/fixtures/files/#{file_name}" }
+  subject {Editor.new(file) }
 
   describe '.initialize' do
-    it 'checks the existance of specified file' do
-      expect { missing_file }.to raise_error
+    context 'with non existent file' do
+      let(:file_name) { 'missing_file.txt' }
+      it 'raises an appropriate error' do
+        expect { subject }.to raise_error(InvalidFileError)
+      end
+    end
+    context 'with empty file' do
+      let(:file_name) { 'empty.txt' }
+      it 'raises an appropriate error' do
+        expect { subject }.to raise_error(InvalidFileError)
+      end
     end
   end
 
   describe '.start' do
-    it 'reads specified file' do
+    context 'with valid text file' do
+      let(:file_name) { 'sample.txt' }
+      it 'returns the specified text file lines as a BitMap' do
+        expect(subject.start).to be_an_instance_of(BitMap)
+      end
+    end
+
+    context 'with invalid text in the file' do
+      let(:file_name) { 'jumbled.txt' }
+      it 'raises appropriate errors' do
+        expect{ subject.start }.to raise_error
+      end
     end
   end
 
-  describe '.run_all_commands' do
-    
-  end
-
-  it "reads sample file" do
-    expect(File.read("spec/fixtures/sample.txt")).to eq("Hello")
-  end
 end
