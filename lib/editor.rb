@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-#require 'byebug'
-#require_relative 'bitmap'
+
 require_relative 'create_new_image'
 require_relative 'clear_the_table'
 require_relative 'colour_the_pixel'
@@ -35,7 +34,11 @@ class Editor
     #run_all_commands
     @commands.each do |command|
       letter, *args = command
-      next if !all_commands.has_key?(letter)
+      letter = letter.upcase
+      if !all_commands.has_key?(letter)
+        puts "Command #{letter} not recognized"
+        next # or return to exit
+      end
       @bitmap = all_commands[letter].new(args).execute(@bitmap)
     end
     @bitmap

@@ -1,5 +1,4 @@
 #require_relative 'bitmap'
-
 class ColourThePixel < BaseCommand
     
   def execute(bitmap)

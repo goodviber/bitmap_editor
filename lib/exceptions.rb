@@ -6,12 +6,6 @@ class CustomError < StandardError
     end
 end
 
-class BitmapImageMissingError < CustomError
-    def message
-        "Bitmap image is missing for #{data.class}"
-    end
-end
-
 class WrongNumberOfArgumentsError < CustomError
 end
 
@@ -41,6 +35,12 @@ end
 
 class InvalidFileError < StandardError
   def initialize(msg="File is empty or missing")
+    super
+  end
+end
+
+class BitmapImageMissingError < StandardError
+  def initialize(msg="Bitmap is missing")
     super
   end
 end

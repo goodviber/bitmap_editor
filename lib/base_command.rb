@@ -9,7 +9,7 @@ class BaseCommand
   end
   
   def assert_valid_arguments(bitmap)
-    raise BitmapImageMissingError, "bitmap is missing" if bitmap.nil?
+    raise BitmapImageMissingError if bitmap.nil?
   end
   
 end
