@@ -1,12 +1,12 @@
 RSpec.describe ShowContent do
-  let(:bitmap) { BitMap.new(5,1) }
+  let(:bitmap) { BitMap.new(5,2) }
   let(:missing_bitmap) {}
   subject { described_class.new(bitmap) }
 
   describe '.execute' do
     context 'with an image' do
-      it 'outputs the image plus a return' do
-        expect { subject.execute(bitmap) }.to output("00000\n").to_stdout
+      it 'outputs the image plus returns' do
+        expect { subject.execute(bitmap) }.to output("00000\n00000\n").to_stdout
       end
     end
 

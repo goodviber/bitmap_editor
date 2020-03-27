@@ -35,6 +35,6 @@ end
 
 class ReverseRangeError < CustomError
   def message
-    "x1 coordinate must be smaller or equal to x2 coordinate for #{data.class}"
+    "first coordinate must be smaller or equal to second coordinate for #{data.class}"
   end
 end
