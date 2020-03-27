@@ -28,17 +28,16 @@ Example
 
 To run the application you must supply a command file like so bin/bitmap_editor examples/show.txt
 
-<<<<<<< HEAD
 Input File
-=======
-Input File:
->>>>>>> ac5506dd02966c2b52e6f0372023f685adf999c3
+
 I 5 6
 L 1 3 A
 V 2 3 6 W
 H 3 5 2 Z
 S
+
 Expected Output:
+
 OOOOO
 OOZZZ
 AWOOO
