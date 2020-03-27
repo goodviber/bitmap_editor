@@ -1,35 +1,36 @@
 # BitmapEditor
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bitmap_editor`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'bitmap_editor'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install bitmap_editor
-
 ## Usage
 
-TODO: Write usage instructions here
+Uses Ruby 2.6.3
 
-## Development
+to run `bin/bitmap_editor examples/show.txt`
+may need to sudo chmod 755 if permission denied
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Program input
+The input consists of a file containing a sequence of commands, where a command is represented by a single capital letter at the beginning of the line. Parameters of the command are separated by white spaces and they follow the command character.
+Pixel coordinates are a pair of integers: a column number between 1 and 250, and a row number between 1 and 250. Bitmaps starts at coordinates 1,1. Colours are specified by capital letters.
+Commands
+There are 6 supported commands:
+I N M - Create a new M x N image with all pixels coloured white (O).
+C - Clears the table, setting all pixels to white (O).
+L X Y C - Colours the pixel (X,Y) with colour C.
+V X Y1 Y2 C - Draw a vertical segment of colour C in column X between rows Y1 and Y2 (inclusive).
+H X1 X2 Y C - Draw a horizontal segment of colour C in row Y between columns X1 and X2 (inclusive).
+S - Show the contents of the current image
+Example
+To run the application you must supply a command file like so bin/bitmap_editor examples/show.txt
+Input File:
+I 5 6
+L 1 3 A
+V 2 3 6 W
+H 3 5 2 Z
+S
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bitmap_editor.
+Expected Output:
+OOOOO
+OOZZZ
+AWOOO
+OWOOO
+OWOOO
+OWOOO
