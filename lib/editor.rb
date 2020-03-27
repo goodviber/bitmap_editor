@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require_relative 'create_new_image'
 require_relative 'clear_the_table'
 require_relative 'colour_the_pixel'
