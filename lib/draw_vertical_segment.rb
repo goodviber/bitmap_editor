@@ -5,7 +5,7 @@ class DrawVerticalSegment < BaseCommand
   def execute(bitmap)
     assert_valid_arguments(bitmap)
     (y1..y2).each do |row|
-      #bitmap[row, x] = colour
+      #bitmap[row,x] = colour
       ColourThePixel.new([x, row, colour]).execute(bitmap)
     end
     bitmap

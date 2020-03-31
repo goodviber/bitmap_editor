@@ -16,6 +16,8 @@ RSpec.describe CreateNewImage do
         expect { described_class.new(['5']).execute(nil) }.to raise_error(WrongNumberOfArgumentsError)
         expect { described_class.new(%w[5 s]).execute(nil) }.to raise_error(WrongTypeOfArgumentsError)
         expect { described_class.new(%w[5 0]).execute(nil) }.to raise_error(DimensionsError)
+        expect { described_class.new(%w[5 251]).execute(nil) }.to raise_error(DimensionsError)
+        expect { described_class.new(%w[251 1]).execute(nil) }.to raise_error(DimensionsError)
       end
     end
   end
